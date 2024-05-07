@@ -1,0 +1,67 @@
+{
+			"id":"AddDocCheckListCaseWidget",
+			"title":"AddDocCheckListCaseWidget",
+			"category": "CustomWidgetDocCheckList",
+			"description":"this is sample CustomWidgetForm",
+			"definition": "CustomWidgetForm.json",
+			"preview":"images/widgetPreview.gif",
+			"icon":"images/contentlist_icon.png",
+			"runtimeClassName":"customf.widgetf.CustomWidgetForm",
+			"previewThumbnail":"images/widgetThumbnail.gif",
+	"properties": [
+		{
+		    "propertyType": "property",
+		    "type": "string",
+		    "id": "PreferredWidth",
+		    "defaultValue": 320,
+		    "disabled": false,
+		    "required": false,
+		    "visibility": true,
+		    "title": "Preferred Width"
+		},
+		{
+		    "propertyType": "property",
+		    "type": "string",
+		    "id": "PreferredHeight",
+		    "defaultValue": "100%",
+		    "disabled": false,
+		    "required": false,
+		    "visibility": true,
+		    "title": "Preferred Height"
+		}
+	],
+	"events": [ 
+		 {
+            "id":"icm.SendNewCaseInfo",
+            "title":"Send new case information",
+            "functionName":"handleICM_SendNewCaseInfoEvent",
+            "direction":"subscribed",
+            "description":"Display the properties for the new case that the user is creating."
+        },
+		
+        {
+            "id":"getPropertyController",
+            "title":"getPropertyController",
+            "direction":"subscribed",
+            "type": "wiring",
+			"functionName": "submit",
+            "description":"to Get the getPropertyController From service"
+	    },
+	    {
+            "id":"SaveCaseCreated",
+            "title":"SaveCaseCreated",
+            "direction":"subscribed",
+            "type": "wiring",
+			"functionName": "afterCreateCase",
+            "description":"to Get the getPropertyController From service"
+	    },		
+	    {
+            "id":"DocCheckListDailog",
+            "title":"DocumentCheckList",
+            "direction":"subscribed",
+            "type": "wiring",
+	     "functionName": "openDocListDailog",
+            "description":"to Get the getPropertyController From service"
+	    }
+	 ]    
+}

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.6
+Created-By: 1.8.0_281-b09 (Oracle Corporation)
+Plugin-Class: com.kbank.loj.DocumentUpdateMainPlugin
+
+Name: build
+Built-By: hp
+Build: ${TODAY}
+

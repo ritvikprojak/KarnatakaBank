@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<project name="SweepJob" default="all" basedir=".">
+
+	<target name="all" depends="clean,compile,jar" />
+
+	<path id="classpath">
+		<pathelement location="./lib/Jace.jar" />
+		<pathelement location="./lib/itextpdf-5.5.13.jar" />
+		<pathelement location="./temp" />
+	</path>
+
+	<target name="clean">
+		<delete dir="temp" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="temp" />
+		<javac srcdir="src" destdir="temp" source="1.8" target="1.8" debug="true">
+			<classpath refid="classpath" />
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	<target name="jar">
+		<jar jarfile="SweepJob.jar">
+			<fileset dir="./temp" includes="**/*" />
+			<manifest>
+				<attribute name="Sweep-class" value="com.ibm.sweep.job.CustomSweepHandler" />
+				<section name="build">
+					<attribute name="Built-By" value="${user.name}" />
+					<attribute name="Build" value="${TODAY}" />
+				</section>
+			</manifest>
+		</jar>
+		<delete dir="./temp" />
+	</target>
+
+</project>

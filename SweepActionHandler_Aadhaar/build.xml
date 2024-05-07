@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<project name="SweepActionHandler" default="all" basedir=".">
+
+	<target name="all" depends="compile,jar" />
+
+	<path id="classpath">
+	
+		<pathelement location="./lib/Jace.jar"/>
+		<pathelement location="./lib/filenet-api-5.5.4.jar"/>
+		<pathelement location="./lib/javax.mail-1.6.2.jar"/>
+		<pathelement location="./lib/opencsv-4.1.jar"/>
+		<pathelement location="./temp" />
+	</path>
+
+	<target name="clean">
+		<delete dir="temp" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="temp" />
+		
+		<javac srcdir="src" destdir="temp" source="1.8" target="1.8">
+			<classpath refid="classpath" />
+			<include name="**/*.java" />
+		</javac>
+	</target>
+
+	<target name="jar">
+		<copy todir="temp">
+			<fileset dir="src">
+			</fileset>
+			
+		</copy>
+		<jar jarfile="CustomSweepActionHandler.jar">
+			<fileset dir="./temp" includes="**/*" />
+			<manifest>
+				<attribute name="Plugin-Class" value="com.projak.ktkbank.sweep.action.SweepDisposal" />
+				<section name="build">
+					<attribute name="Built-By" value="${user.name}" />
+					<attribute name="Build" value="${TODAY}" />
+				</section>
+			</manifest>
+		</jar>
+		<delete dir="./temp" />
+	</target>
+
+</project>

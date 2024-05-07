@@ -1,0 +1,26 @@
+{
+	"Name":"CustomWidgetAddCase",
+	"Description":"This is Sample Custom WidgetForm",
+	"Locale":"",
+	"Version":"5.3",
+	"Categories":[
+		{
+			"id":"CustomWidgetDocCheckList",
+			"title":"CustomWidgetDocCheckList"
+		}
+	],
+	"Widgets":[
+		{
+			"id":"AddDocCheckListCaseWidget",
+			"title":"AddDocCheckListCaseWidget",
+			"category": "CustomWidgetDocCheckList",
+			"description":"this is sample CustomWidgetForm",
+			"definition": "CustomWidgetForm.json",
+			"preview":"images/widgetPreview.gif",
+			"icon":"images/contentlist_icon.png",
+			"runtimeClassName":"customf.widgetf.CustomWidgetForm",
+			"previewThumbnail":"images/widgetThumbnail.gif"
+		}
+		
+	]
+}
